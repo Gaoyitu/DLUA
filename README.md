@@ -1,9 +1,7 @@
-# Enhanced Unrestricted Adversarial Attacks via Dual-Label Guidance in Diffusion Models
-
-## Citation
+## Dual-Label Guided Unrestricted Target Attack with Diffusion Model
 
 Please cite our work if you find it useful:  
-‌**"Enhanced Unrestricted Adversarial Attacks via Dual-Label Guidance in Diffusion Models"**‌  
+‌\*\*"Enhanced Unrestricted Adversarial Attacks via Dual-Label Guidance in Diffusion Models"\*\*‌  
 *(Under Review at Neurocomputing)*
 
 ## Acknowledge
