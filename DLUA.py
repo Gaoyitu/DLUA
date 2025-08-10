@@ -65,7 +65,7 @@ def generate_image(image_path,
                    add_noise_steps=10,
                    denoise_steps=50,
                    alpha=2.0,
-                   beta=1.5):
+                   beta=7.0):
     """
     Generate an adversarial example via dual-label classifier guidance
     combined with PGD at each diffusion denoising step.
@@ -129,9 +129,9 @@ def generate_image(image_path,
             log_p_uncond = log_probs.logsumexp(dim=-1)
 
             # weighted sum of log-probs
-            combined = ((1 + alpha) * log_p_y +
-                        beta * log_p_y_star -
-                        (alpha + beta) * log_p_uncond)
+            combined = log_p_uncond \
+                       + alpha * (log_p_y - log_p_uncond) \
+                       + beta * (log_p_y_star - log_p_uncond)
             grad = th.autograd.grad(combined.sum(), x_in)[0]
 
         # scale the guidance
